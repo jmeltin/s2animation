@@ -3,24 +3,44 @@
 .banner {
 	width: 728px;
 	height: 90px;
-	background-color: #cccccc;
+	background-image: url("../img/background.jpg");
 	overflow: hidden;
 	position: relative;
 }
 
-.hello {
-	font-size: 40px;
+.logo {
+	width: 346px;
+	height: 79px;
+	background-image: url("../img/logo.png");
 	position: absolute;
-	top: 10px;
-	left: -200px;
+	top: 5px;
+	left: -500px;
 }
 
-.hello-transition-in {
-	left: 10px;
-	transition: .5s cubic-bezier(.53,.33,.69,.98);	
-}
-.hello-transition-out {
-	left: 10px;
+.cat {
+	width: 117px;
+	height: 93px;
+	background-image: url("../img/cat.png");
+	position: absolute;
 	top: 90px;
-	transition: .5s cubic-bezier(.53,.33,.69,.98);	
+	left: 500px;
+}
+
+.logo-transition-in {
+	left: 60px;
+	transition: left .25s cubic-bezier(.53,.33,.69,.98);	
+}
+.logo-transition-out {
+	left: -500px;
+	transition: left .25s cubic-bezier(.53,.33,.69,.98);	
+}
+
+.cat-transition-in {
+	top: 5px;
+	transition: top .1625s cubic-bezier(.53,.33,.69,.98);	
+}
+
+.cat-transition-out {
+	top: 90px;
+	transition: top .1625s cubic-bezier(.53,.33,.69,.98);	
 }

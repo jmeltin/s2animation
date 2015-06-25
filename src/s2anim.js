@@ -4,8 +4,7 @@ function s2anim(id) {
 	if(_target == null)
 		throw "Target ID is invalid";
 	
-	var _targetOrigClassList = _target.className,
-		_commandList = [],
+	var _commandList = [],
 		_delayList = [],
 		_currentCommand = "",
 		_delay = null;
@@ -29,8 +28,7 @@ function s2anim(id) {
 
 	function switchTransition()
 	{
-		var targetClass = _targetOrigClassList + " " + _currentCommand;
-		_target.setAttribute("class", targetClass);
+		_target.setAttribute("class", _target.className += " " + _currentCommand);
 		clearDelay();
 	}
 
