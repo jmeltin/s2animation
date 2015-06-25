@@ -1,31 +1,26 @@
-.id1 {
-	width: 100px;
-	height: 100px;
-	background-color: cornflowerblue;
-	display: block;
+@import 'reset';
+
+.banner {
+	width: 728px;
+	height: 90px;
+	background-color: #cccccc;
+	overflow: hidden;
+	position: relative;
+}
+
+.hello {
+	font-size: 40px;
 	position: absolute;
-	left: 0;
-	top: 0;
+	top: 10px;
+	left: -200px;
 }
 
-.circle {
-	width: 200px;
-	height: 200px;
-	background-color: orange;
-	position: absolute;
-	left: 0;
-	top: 0;
-	opacity: .5;
+.hello-transition-in {
+	left: 10px;
+	transition: .5s cubic-bezier(.53,.33,.69,.98);	
 }
-
-.moveRight {
-	left: 70px;
-	background-color: red;
-	transition: 3s ease-out;
-}
-
-.moveDown {
-	top: 70px;
-	left: 70px;
-	transition: 3s ease-out;
+.hello-transition-out {
+	left: 10px;
+	top: 90px;
+	transition: .5s cubic-bezier(.53,.33,.69,.98);	
 }

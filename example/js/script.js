@@ -1,8 +1,4 @@
-new s2anim("id1")
-	.add("moveRight", 4)
-	.add("moveDown", 2)
-	.start();
-
-new s2anim("circle")
-	.add("moveDown", 10)
+new s2anim("text")
+	.add("hello-transition-in", 0)
+	.add("hello-transition-out", 4)
 	.start();
