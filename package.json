@@ -1,0 +1,27 @@
+{
+  "name": "animationqueue",
+  "version": "1.0.0",
+  "description": "Event transition queue",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmeltin/s2animation.git"
+  },
+  "author": "Jeremy Meltingtallow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmeltin/s2animation/issues"
+  },
+  "homepage": "https://github.com/jmeltin/s2animation#readme",
+  "devDependencies": {
+    "browser-sync": "^2.7.12",
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.2"
+  }
+}

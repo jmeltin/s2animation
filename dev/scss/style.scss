@@ -1,0 +1,31 @@
+.id1 {
+	width: 100px;
+	height: 100px;
+	background-color: cornflowerblue;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.circle {
+	width: 200px;
+	height: 200px;
+	background-color: orange;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: .5;
+}
+
+.moveRight {
+	left: 70px;
+	background-color: red;
+	transition: 3s ease-out;
+}
+
+.moveDown {
+	top: 70px;
+	left: 70px;
+	transition: 3s ease-out;
+}
