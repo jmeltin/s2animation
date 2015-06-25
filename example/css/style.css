@@ -74,7 +74,8 @@ table {
 
 .logo-transition-out {
   left: -500px;
-  transition: left 0.25s cubic-bezier(0.53, 0.33, 0.69, 0.98); }
+  transform: rotate(30deg);
+  transition: 0.25s cubic-bezier(0.53, 0.33, 0.69, 0.98); }
 
 .cat-transition-in {
   top: 5px;

@@ -32,7 +32,8 @@
 }
 .logo-transition-out {
 	left: -500px;
-	transition: left .25s cubic-bezier(.53,.33,.69,.98);	
+	transform: rotate(30deg);
+	transition: .25s cubic-bezier(.53,.33,.69,.98);
 }
 
 .cat-transition-in {

@@ -5,5 +5,5 @@ new s2anim("logo")
 
 new s2anim("cat")
 	.add("cat-transition-in", 4)
-	.add("cat-transition-out", 0.25)
+	.add("cat-transition-out", 0.4)
 	.start();
