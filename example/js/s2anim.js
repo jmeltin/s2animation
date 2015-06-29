@@ -50,7 +50,3 @@ function s2anim(id) {
 	}
 }
 
-
-
-
-
