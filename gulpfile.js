@@ -4,7 +4,10 @@ var gulp         = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     cssmin       = require('gulp-cssmin'),
     uglify       = require('gulp-uglify'),
-    concat       = require('gulp-concat');
+    concat       = require('gulp-concat'),
+    imagemin     = require('gulp-imagemin'),
+    pngquant     = require('imagemin-pngquant'),
+    size         = require('gulp-size');
 
 gulp.task('serve', ['sass'], function() {
 
@@ -38,8 +41,18 @@ gulp.task('concatjs', function() {
         .pipe(browserSync.stream());
 });
 
+gulp.task('sizes', function() {
+    return gulp.src("./_production/**")
+         .pipe(size());
+});
+
 gulp.task('image', function() {
     return gulp.src("_development/img/*.*")
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
         .pipe(gulp.dest("_production/img"))
         .pipe(browserSync.stream());
 });
