@@ -9,7 +9,6 @@ var gulp         = require('gulp'),
     pngquant     = require('imagemin-pngquant'),
     size         = require('gulp-size');
 
-
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //XXXXXXXXXXXXX Watches SASS/HTML/JS for changes XXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -26,6 +25,7 @@ gulp.task('serve', ['sass'], function() {
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //XXXXXXXXXXXXX Sass to Css -> Prefix -> Minify  XXXX
+//XXXXXXXXXXXXX -> move                          XXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('sass', function() {
     return gulp.src("_development/scss/*.scss")
@@ -40,7 +40,7 @@ gulp.task('sass', function() {
 });
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//XXXXXXXXXXXXX Concat all js -> minify          XXXX
+//XXXXXXXXXXXXX Concat all js -> minify -> move  XXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('concatjs', function() {
     return gulp.src("_development/js/*.js")
@@ -51,7 +51,7 @@ gulp.task('concatjs', function() {
 });
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//XXXXXXXXXXXXX Nothing Special                  XXXX
+//XXXXXXXXXXXXX move                             XXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('html', function() {
     return gulp.src("_development/index.html")
@@ -60,18 +60,18 @@ gulp.task('html', function() {
 });
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//XXXXXXXXXXXXX Must be called in terminal "gulp sizes/image" XXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Must be called in terminal "gulp projectsize/image" XXXXXXXXXXXXXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //XXXXXXXXXXXXX Sum of all files sizes           XXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-gulp.task('sizes', function() {
+gulp.task('projectsize', function() {
     return gulp.src("./_production/**")
          .pipe(size());
 });
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//XXXXXXXXXXXXX Lossless compression of images   XXXX
+//XXXXXXXXXXXXX Lossless compression -> move     XXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('image', function() {
     return gulp.src("_development/img/*.*")
