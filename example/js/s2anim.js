@@ -29,7 +29,7 @@ function s2anim(id) {
 	function switchTransition()
 	{
 		_target.setAttribute("class", _target.className += " " + _currentCommand);
-		clearDelay();
+		// clearDelay();
 	}
 
 	function clearDelay()
@@ -44,9 +44,14 @@ function s2anim(id) {
 	{
 		if(_commandList.length != 0) {
 			_currentCommand = _commandList.shift();
+			console.log(_currentCommand);
 			var time = _delayList.shift() * 1000;
-			_delay = setTimeout(switchTransition, time)
+			setTimeout(switchTransition, time)
 		}
 	}
 }
+
+
+
+
 

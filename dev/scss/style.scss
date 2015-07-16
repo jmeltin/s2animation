@@ -1,47 +1,41 @@
 @import 'reset';
 
 .banner {
-	width: 728px;
-	height: 90px;
-	background-image: url("../img/background.jpg");
+	width: 300px;
+	height: 250px;
+	background: cornflowerblue;
 	overflow: hidden;
 	position: relative;
 }
 
-.logo {
-	width: 346px;
-	height: 79px;
-	background-image: url("../img/logo.png");
+.house {
 	position: absolute;
-	top: 5px;
-	left: -500px;
+	top: 0;
+	left: 0;
+	background-image: url('../img/house.svg');
+	background-size: 100% 100%;
+	width: 200px;
+	height: 200px;
 }
 
-.cat {
-	width: 117px;
-	height: 93px;
-	background-image: url("../img/cat.png");
-	position: absolute;
-	top: 90px;
-	left: 500px;
+.house-transition-topRightWindow {
+	width: 500px;
+	height: 500px;
+	left: -200px;
+	top: -80px;
+	transition: 5s;	
 }
 
-.logo-transition-in {
-	left: 60px;
-	transition: left .25s cubic-bezier(.53,.33,.69,.98);	
-}
-.logo-transition-out {
-	left: -500px;
-	transform: rotate(30deg);
-	transition: .25s cubic-bezier(.53,.33,.69,.98);
+.house-transition-topCircle {
+	left: -180px;
+	top: 10px;
+	transition: 2s;	
 }
 
-.cat-transition-in {
-	top: 5px;
-	transition: top .1625s cubic-bezier(.53,.33,.69,.98);	
-}
-
-.cat-transition-out {
-	top: 90px;
-	transition: top .1625s cubic-bezier(.53,.33,.69,.98);	
+.house-transition-full {
+	left: 0px;
+	top: 0px;
+	width: 250px;
+	height: 250px;
+	transition: 3s;	
 }
