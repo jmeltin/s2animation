@@ -5,4 +5,3 @@ window.onload = function() {
 		.add("house-full", 0)
 		.start();
 }
-	

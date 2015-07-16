@@ -1,6 +1,12 @@
 @import 'reset';
 
 $dur-scale: 1.25;
+$house-width: 200px;
+$house-height: 200px;
+
+body {
+	transform:translate3d(0,0,0);
+}
 
 .banner {
 	width: 300px;
@@ -15,8 +21,9 @@ $dur-scale: 1.25;
 	left: 0;
 	background-image: url('../img/house.svg');
 	background-size: 100% 100%;
-	width: 200px;
-	height: 200px;
+	width: $house-width;
+	height: $house-height;
+	backface-visibility: hidden;
 }
 
 
@@ -25,10 +32,11 @@ $dur-scale: 1.25;
 }
 @keyframes house-mainWindow {
 	to {
-		top: -80px;
-		left: 40px;
-		width: 450px;
-		height: 450px;
+		transform: 
+			translateX(-100px)
+			translateY(60px);
+		width: $house-width * 3;
+		height: $house-height * 3;
 	}
 }
 .house-circle {
@@ -36,16 +44,18 @@ $dur-scale: 1.25;
 }
 @keyframes house-circle {
 	from {
-		top: -80px;
-		left: 40px;
-		width: 450px;
-		height: 450px;
+		transform: 
+			translateX(-100px)
+			translateY(60px);
+		width: $house-width * 3;
+		height: $house-height * 3;
 	}
 	to {
-		top: 30px;
-		left: -170px;
-		width: 500px;
-		height: 500px;
+		transform: 
+			translateX(-60px)
+			translateY(190px);
+		width: $house-width * 2.5;
+		height: $house-height * 2.5;
 	}
 }
 .house-full {
@@ -53,16 +63,18 @@ $dur-scale: 1.25;
 }
 @keyframes house-full {
 	from {
-		top: 30px;
-		left: -170px;
-		width: 500px;
-		height: 500px;
+		transform: 
+			translateX(-60px)
+			translateY(190px);
+		width: $house-width * 2.5;
+		height: $house-height * 2.5;
 	}
 	to {
-		top: 50px;
-		left: 75px;
-		width: 150px;
-		height: 150px;
+		transform: 
+			translateX(50px)
+			translateY(20px);
+		width: $house-width;
+		height: $house-height;
 	}
 }
 

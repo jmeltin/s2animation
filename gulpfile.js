@@ -31,7 +31,7 @@ gulp.task('sass', function() {
     return gulp.src("_development/scss/*.scss")
         .pipe(sass())
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['last 1 versions'],
             cascade: false
         }))
         .pipe(cssmin())
