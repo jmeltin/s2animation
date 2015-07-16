@@ -9,8 +9,11 @@ var gulp         = require('gulp'),
     pngquant     = require('imagemin-pngquant'),
     size         = require('gulp-size');
 
-gulp.task('serve', ['sass'], function() {
 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Watches SASS/HTML/JS for changes XXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+gulp.task('serve', ['sass'], function() {
     browserSync.init({
         server: "./_production",
         injectChanges: false
@@ -21,6 +24,9 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch("_development/js/*.js"    , ['concatjs']);
 });
 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Sass to Css -> Prefix -> Minify  XXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('sass', function() {
     return gulp.src("_development/scss/*.scss")
         .pipe(sass())
@@ -33,6 +39,9 @@ gulp.task('sass', function() {
         .pipe(browserSync.stream());
 });
 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Concat all js -> minify          XXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('concatjs', function() {
     return gulp.src("_development/js/*.js")
         .pipe(concat('script.js'))
@@ -41,11 +50,29 @@ gulp.task('concatjs', function() {
         .pipe(browserSync.stream());
 });
 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Nothing Special                  XXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+gulp.task('html', function() {
+    return gulp.src("_development/index.html")
+        .pipe(gulp.dest("_production/"))
+        .pipe(browserSync.stream());
+});
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Must be called in terminal "gulp sizes/image" XXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Sum of all files sizes           XXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('sizes', function() {
     return gulp.src("./_production/**")
          .pipe(size());
 });
 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXX Lossless compression of images   XXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gulp.task('image', function() {
     return gulp.src("_development/img/*.*")
         .pipe(imagemin({
@@ -56,11 +83,6 @@ gulp.task('image', function() {
         .pipe(gulp.dest("_production/img"))
         .pipe(browserSync.stream());
 });
-
-gulp.task('html', function() {
-    return gulp.src("_development/index.html")
-        .pipe(gulp.dest("_production/"))
-        .pipe(browserSync.stream());
-});
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 gulp.task('default', ['serve', 'sass', 'html', 'concatjs']);
