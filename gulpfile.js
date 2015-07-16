@@ -1,6 +1,8 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
+var gulp        = require('gulp'),
+    browserSync = require('browser-sync').create(),
+    sass        = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cssmin = require('gulp-cssmin');
 
 gulp.task('serve', ['sass'], function() {
 
@@ -18,6 +20,11 @@ gulp.task('serve', ['sass'], function() {
 gulp.task('sass', function() {
     return gulp.src("dev/scss/*.scss")
         .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(cssmin())
         .pipe(gulp.dest("example/css"))
         .pipe(browserSync.stream());
 });

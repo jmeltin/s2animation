@@ -9,7 +9,7 @@ function s2anim(id) {
 		_currentCommand = "",
 		_delay = null;
 
-	_target.addEventListener('webkitTransitionEnd', nextCommand, false);
+	_target.addEventListener('animationend', nextCommand, false);
 
 
 	this.add = function(name, delay)
@@ -29,22 +29,12 @@ function s2anim(id) {
 	function switchTransition()
 	{
 		_target.setAttribute("class", _target.className += " " + _currentCommand);
-		// clearDelay();
 	}
 
-	function clearDelay()
-	{
-		if(_delay != null) {
-			window.clearTimeout(_delay);
-			_delay = null;
-		}
-	}
-
-	function nextCommand()
+	function nextCommand(event)
 	{
 		if(_commandList.length != 0) {
 			_currentCommand = _commandList.shift();
-			console.log(_currentCommand);
 			var time = _delayList.shift() * 1000;
 			setTimeout(switchTransition, time)
 		}
